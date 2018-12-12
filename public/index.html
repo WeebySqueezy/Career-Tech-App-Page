@@ -1,0 +1,39 @@
+<html>
+<head>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Welcome to the Career Tech Applications Page!</h1>
+    <label for ="courses">Please choose your course:</label>
+    <select name="courses">
+        <option value="0">Northview Comp Sci</option>
+        <option value="1">Art</option>
+        <option value="2">Engineering</option>
+        <option value="3">Interactive Media</option>
+        <option value="4">MedTech</option>
+        <option value="5">Cosmotology</option>
+        <option value="6">Southview Programming</option>
+        <option value="7">Computer Graphics</option>
+        <option value="8">Nuclear Warfare</option>
+    </select>
+    <button>View Course Applications</button>
+    
+ <script>
+    $("button").click(function() {
+        axios.post('/received',{
+            "courses":$("select[name='courses']").val(),
+        })
+        .then(function(response) {
+            console.log(response.data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
+        
+        
+    });
+    </script>
+</body>
+</html>
